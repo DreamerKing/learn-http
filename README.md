@@ -51,7 +51,7 @@
 + 自己创建证书 openssl
   ```
   openssl genrsa -out key.pem 2048
-  openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 365  -subj "/CN=dk.com"
+  openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 365  -subj "//CN=dk.com"
   ```
 + 向数字证书认证机构申请 Let Encrypt
   ```sh
@@ -101,3 +101,9 @@ nghttpd -v -d ./ 8989 ./key.pem ./cert.pem
 + 更多的域名
 + 更多的TCP socket 
 
+
+```bash
+// 查看nginx配置模块
+nginx -V
+```
+Chrome浏览器不信任自签名证书，可以在页面输入`thisisunsafe`即可跳过。
